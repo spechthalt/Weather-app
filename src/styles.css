@@ -1,0 +1,86 @@
+img {
+  margin-right: 15px;
+  position: relative;
+  top: -15px;
+}
+
+.weather-app {
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 33%,
+    rgba(104, 176, 171, 0.6) 100%
+  );
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0px 11px 22px rgb(0 0 0 / 30%);
+  color: #006a71;
+  font-family: "Quicksand", sans-serif;
+  max-width: 60%;
+  margin: 40px auto;
+  padding: 30px;
+}
+
+.search-menu {
+  margin: 10px auto 50px;
+  justify-content: center;
+}
+
+.search-bar {
+  width: 100%;
+  border: 1px solid #006a71;
+  border-radius: 5px;
+}
+
+.menu-btn {
+  color: #006a71;
+  background: #fff;
+  border: 1px solid #006a71;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 20%);
+  transition: all 150ms ease-in-out;
+}
+
+.menu-btn:hover {
+  background: #006a71;
+  color: #fff;
+}
+
+.current-city {
+  font-weight: 600;
+}
+
+.date-time {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.current-temp {
+  font-size: 60px;
+  margin-bottom: 30px;
+}
+
+.temp-symbol {
+  font-size: 20px;
+  position: relative;
+  bottom: 25px;
+}
+
+a.temp-link {
+  text-decoration: none;
+  color: #006a71;
+}
+
+.weather-info {
+  margin-bottom: 30px;
+}
+
+.high-low {
+  font-size: 30px;
+}
+
+.future-weather {
+  margin: 30px 0 30px;
+  font-weight: bold;
+  text-align: center;
+  justify-content: space-evenly;
+}
