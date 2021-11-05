@@ -84,3 +84,8 @@ a.temp-link {
   text-align: center;
   justify-content: space-evenly;
 }
+
+.code-link {
+  color: #006a71;
+  margin-left: 20%;
+}
