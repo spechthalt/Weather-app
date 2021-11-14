@@ -1,9 +1,18 @@
 function displayLocalTemp(response) {
+  console.log(response);
   let currentCity = document.querySelector("#searched-city");
   let currentTemp = document.querySelector("#current-display-temp");
   let responseTemp = Math.round(response.data.main.temp);
+  let humidityElement = document.querySelector("#humidity");
+  //let windSpeedElement = document.querySelector("#wind-speed");
+  let highTempElement = document.querySelector("#temp-high");
+  let lowTempElement = document.querySelector("#temp-low");
   currentCity.innerHTML = `${response.data.name}`;
   currentTemp.innerHTML = `${responseTemp}`;
+  humidityElement.innerHTML = `${response.data.main.humidity}%`;
+  //windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
+  highTempElement.innerHTML = Math.round(response.data.main.temp_max);
+  lowTempElement.innerHTML = Math.round(response.data.main.temp_min);
   console.log(response);
 }
 
@@ -25,9 +34,13 @@ function searchCurrentLocation(event) {
 function displayCityAndTemp(response) {
   let currentCity = document.querySelector("#searched-city");
   let currentTemp = document.querySelector("#current-display-temp");
+  let humidityElement = document.querySelector("#humidity");
   let responseTemp = Math.round(response.data.main.temp);
+  let windSpeedElement = document.querySelector("#wind-speed");
   currentCity.innerHTML = `${response.data.name}`;
   currentTemp.innerHTML = `${responseTemp}`;
+  humidityElement.innerHTML = `${response.data.main.humidity}%`;
+  windSpeedElement.innerHTML = Math.round(`${response.data.wind.speed}km/h`);
   console.log(response);
 }
 
@@ -51,20 +64,6 @@ function searchCity(event) {
 //   let currentCity = document.querySelector("#searched-city");
 //   currentCity.innerHTML = `${searchInput.value}`;
 // }
-
-//TEMP CHANGE FUNCTIONS
-
-//function showFahrenheit(event) {
-//  event.preventDefault();
-//  let currentTemp = document.querySelector(".current-temp");
-//  currentTemp.innerHTML = 75;
-//}
-
-//function showCelcius(event) {
-//  event.preventDefault();
-//  let currentTemp = document.querySelector(".current-temp");
-//  currentTemp.innerHTML = 25;
-//}
 
 //DISPLYING DATE AND TIME
 
@@ -105,10 +104,6 @@ let months = [
 
 let minutes = ("0" + now.getMinutes()).slice(-2);
 
-//console.log(date);
-//console.log(now.getMonth());
-//console.log(year);
-
 currentDate.innerHTML = `${months[now.getMonth()]} ${date}, ${year}`;
 
 currentTime.innerHTML = `${
@@ -120,15 +115,6 @@ currentTime.innerHTML = `${
 let form = document.querySelector("#search-form");
 
 form.addEventListener("submit", searchCity);
-
-//SWITCHING BETWEEN F AND C TEMP
-
-//let fahrenheit = document.querySelector("#temp-f");
-//let celcius = document.querySelector("#temp-c");
-
-//fahrenheit.addEventListener("click", showFahrenheit);
-
-//celcius.addEventListener("click", showCelcius);
 
 //LOCATON AND WEATHER API
 let unit = "metric";

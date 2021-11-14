@@ -26,7 +26,7 @@
           <div class="row search-menu">
             <div class="col-lg-6 col-sm-12">
               <form id="search-form">
-                <input id="search" class="search-bar" type="text" placeholder="Search city" />
+                <input id="search" class="search-bar w-100" type="search" placeholder="Search city" />
             </div>
           <div class="col-lg-2 col-sm-6">
               <input id="search-button" type="submit" value="Search" class="menu-btn">
@@ -48,7 +48,7 @@
               </h3>
             </div>
             <div class="col-5">
-              <span class="high-low">H: 70° L: 64°</span>
+              <span class="high-low"> H: <span id="temp-high"></span>° L: <span id="temp-low"></span>°</span>
             </div>
 
             <div class="col-lg-7 col-sm-12 weather-info">
@@ -63,11 +63,10 @@
                   <a id="temp-c" class="temp-link" href=""> °C</a></span> 
               </span>
             </div>
-            <div class="col-5 weather-info">
+            <div class="col-5 mt-3 weather-info ">
               <span>
-                Humidity: <br />
-                Chance of rain: <br />
-                Wind: <br />
+                Humidity: <span id="humidity"></span> <br />
+                Wind speed: <span id="wind-speed"></span><br />
               </span>
             </div>
             <hr />
