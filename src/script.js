@@ -7,6 +7,7 @@ function displayLocalTemp(response) {
   let highTempElement = document.querySelector("#temp-high");
   let lowTempElement = document.querySelector("#temp-low");
   let descriptionElement = document.querySelector("#description");
+  let iconElement = document.querySelector("#icon");
   celsiusTemperature = response.data.main.temp;
   currentCity.innerHTML = `${response.data.name}`;
   currentTemp.innerHTML = `${responseTemp}`;
@@ -15,6 +16,10 @@ function displayLocalTemp(response) {
   highTempElement.innerHTML = Math.round(response.data.main.temp_max);
   lowTempElement.innerHTML = Math.round(response.data.main.temp_min);
   descriptionElement.innerHTML = response.data.weather[0].main;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
   console.log(response);
 }
 
@@ -42,6 +47,7 @@ function displayCityAndTemp(response) {
   let highTempElement = document.querySelector("#temp-high");
   let lowTempElement = document.querySelector("#temp-low");
   let descriptionElement = document.querySelector("#description");
+  let iconElement = document.querySelector("#icon");
   celsiusTemperature = response.data.main.temp;
   currentCity.innerHTML = `${response.data.name}`;
   currentTemp.innerHTML = `${responseTemp}`;
@@ -50,6 +56,10 @@ function displayCityAndTemp(response) {
   highTempElement.innerHTML = Math.round(response.data.main.temp_max);
   lowTempElement.innerHTML = Math.round(response.data.main.temp_min);
   descriptionElement.innerHTML = response.data.weather[0].main;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
   console.log(response);
 }
 
