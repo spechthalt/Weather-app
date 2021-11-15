@@ -7,12 +7,14 @@ function displayLocalTemp(response) {
   let windSpeedElement = document.querySelector("#wind-speed");
   let highTempElement = document.querySelector("#temp-high");
   let lowTempElement = document.querySelector("#temp-low");
+  let descriptionElement = document.querySelector("#description");
   currentCity.innerHTML = `${response.data.name}`;
   currentTemp.innerHTML = `${responseTemp}`;
   humidityElement.innerHTML = `${response.data.main.humidity}%`;
   windSpeedElement.innerHTML = `${Math.round(response.data.wind.speed)} km/h`;
   highTempElement.innerHTML = Math.round(response.data.main.temp_max);
   lowTempElement.innerHTML = Math.round(response.data.main.temp_min);
+  descriptionElement.innerHTML = response.data.weather[0].main;
   console.log(response);
 }
 
@@ -39,12 +41,14 @@ function displayCityAndTemp(response) {
   let windSpeedElement = document.querySelector("#wind-speed");
   let highTempElement = document.querySelector("#temp-high");
   let lowTempElement = document.querySelector("#temp-low");
+  let descriptionElement = document.querySelector("#description");
   currentCity.innerHTML = `${response.data.name}`;
   currentTemp.innerHTML = `${responseTemp}`;
   humidityElement.innerHTML = `${response.data.main.humidity}%`;
   windSpeedElement.innerHTML = `${Math.round(response.data.wind.speed)} km/h`;
   highTempElement.innerHTML = Math.round(response.data.main.temp_max);
   lowTempElement.innerHTML = Math.round(response.data.main.temp_min);
+  descriptionElement.innerHTML = response.data.weather[0].main;
   console.log(response);
 }
 
