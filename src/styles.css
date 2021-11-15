@@ -7,7 +7,7 @@ img {
 .weather-app {
   background: linear-gradient(
     0deg,
-    rgba(255, 255, 255, 1) 33%,
+    rgba(255, 255, 255, 1) 15%,
     rgba(104, 176, 171, 0.6) 100%
   );
   border: none;
