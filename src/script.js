@@ -1,5 +1,4 @@
 function displayLocalTemp(response) {
-  console.log(response);
   let currentCity = document.querySelector("#searched-city");
   let currentTemp = document.querySelector("#current-display-temp");
   let responseTemp = Math.round(response.data.main.temp);
@@ -8,6 +7,7 @@ function displayLocalTemp(response) {
   let highTempElement = document.querySelector("#temp-high");
   let lowTempElement = document.querySelector("#temp-low");
   let descriptionElement = document.querySelector("#description");
+  celsiusTemperature = response.data.main.temp;
   currentCity.innerHTML = `${response.data.name}`;
   currentTemp.innerHTML = `${responseTemp}`;
   humidityElement.innerHTML = `${response.data.main.humidity}%`;
@@ -42,6 +42,7 @@ function displayCityAndTemp(response) {
   let highTempElement = document.querySelector("#temp-high");
   let lowTempElement = document.querySelector("#temp-low");
   let descriptionElement = document.querySelector("#description");
+  celsiusTemperature = response.data.main.temp;
   currentCity.innerHTML = `${response.data.name}`;
   currentTemp.innerHTML = `${responseTemp}`;
   humidityElement.innerHTML = `${response.data.main.humidity}%`;
@@ -64,14 +65,19 @@ function searchCity(event) {
   axios.get(weatherApiUrl).then(displayCityAndTemp);
 }
 
-// DISPLAYING SEARCHED CITY FUNCTION
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-display-temp");
+  let temperatureFahrenheit = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(temperatureFahrenheit);
+}
 
-// function searchCity(event) {
-//   event.preventDefault();
-//   let searchInput = document.querySelector("#search");
-//   let currentCity = document.querySelector("#searched-city");
-//   currentCity.innerHTML = `${searchInput.value}`;
-// }
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-display-temp");
+  temperatureCelsius = Math.round(celsiusTemperature);
+  temperatureElement.innerHTML = temperatureCelsius;
+}
 
 //DISPLYING DATE AND TIME
 
@@ -137,3 +143,13 @@ axios.get(weatherApiUrl).then(displayCityAndTemp);
 let currentLocationButton = document.querySelector("#current-location-btn");
 
 currentLocationButton.addEventListener("click", searchCurrentLocation);
+
+//F and C conversion
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#temp-f");
+
+let celsiusLink = document.querySelector("#temp-c");
+
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+celsiusLink.addEventListener("click", displayCelsiusTemp);
