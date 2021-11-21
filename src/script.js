@@ -42,24 +42,25 @@ function searchCurrentLocation(event) {
 
 function displayForecast(response) {
   console.log(response.data.daily);
-  let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  let forecast = response.data.daily;
 
-  days.forEach(function (days) {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `
     <div class="col-lg-2 col-sm-4">
-      <div class="weather-forcast-date">${days}</div>
+      <div class="weather-forcast-date">${forecastDay.dt}</div>
       <img
-      src="https://ssl.gstatic.com/onebox/weather/48/rain_light.png"
+      src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
       alt=""
       width="40px"
       />
       <div class="weather-forcast-temperatures">
-      <span class="weather-forecast-max">18° </span>
-      <span class="weather-forecast-min">13°</span>
+      <span class="weather-forecast-max">${forecastDay.temp.max}° </span>
+      <span class="weather-forecast-min">${forecastDay.temp.min}°</span>
       </div>
     </div>`;
   });
