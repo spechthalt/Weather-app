@@ -22,7 +22,7 @@ function displayLocalTemp(response) {
   );
   console.log(response);
 
-  displayForecast();
+  getForecast(response.data.coord);
 }
 
 function searchCurrentLocation(event) {
@@ -119,18 +119,6 @@ function displayCityAndTemp(response) {
   getForecast(response.data.coord);
 }
 
-function searchCity(event) {
-  event.preventDefault();
-  let unit = "imperial";
-  let searchedCity = document.querySelector("#search");
-
-  let apiKey = "aaa0469026a2f6fda71f9536102ca825";
-
-  let weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchedCity.value}&units=${unit}&appid=${apiKey}`;
-
-  axios.get(weatherApiUrl).then(displayCityAndTemp);
-}
-
 //DISPLYING DATE AND TIME
 
 let currentDate = document.querySelector("#current-date");
@@ -170,17 +158,13 @@ let months = [
 
 let minutes = ("0" + now.getMinutes()).slice(-2);
 
-currentDate.innerHTML = `${months[now.getMonth()]} ${date}, ${year}`;
+currentDate.innerHTML = `${weekday[now.getDay()]}, ${
+  months[now.getMonth()]
+} ${date}, ${year}`;
 
-currentTime.innerHTML = `${
-  weekday[now.getDay()]
-}, ${now.getHours()}:${minutes}`;
+currentTime.innerHTML = `Last updated:  ${now.getHours()}:${minutes}`;
 
 // DISPLAYING SEARCHED CITY
-
-let form = document.querySelector("#search-form");
-
-form.addEventListener("submit", searchCity);
 
 //LOCATON AND WEATHER API
 let unit = "imperial";
@@ -195,3 +179,22 @@ axios.get(weatherApiUrl).then(displayCityAndTemp);
 let currentLocationButton = document.querySelector("#current-location-btn");
 
 currentLocationButton.addEventListener("click", searchCurrentLocation);
+
+function searchCity(city) {
+  let apiKey = "aaa0469026a2f6fda71f9536102ca825";
+  let unit = "imperial";
+  let weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`;
+
+  axios.get(weatherApiUrl).then(displayCityAndTemp);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let searchedCity = document.querySelector("#search");
+  searchCity(searchedCity.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+searchCity("San Diego");

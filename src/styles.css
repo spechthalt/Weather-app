@@ -59,7 +59,7 @@ form {
 }
 
 .date-time {
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 30px;
 }
 
@@ -115,4 +115,9 @@ form {
 
 .weather-forecast img {
   margin: 0;
+}
+
+.credits {
+  font-size: 14px;
+  opacity: 0.7;
 }
