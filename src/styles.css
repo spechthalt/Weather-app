@@ -78,19 +78,6 @@ form {
   margin-bottom: 35px;
 }
 
-.temp-link {
-  text-decoration: none;
-}
-
-.weather-info .active {
-  color: #006a71;
-  cursor: default;
-}
-
-.weather-info .active:hover {
-  text-decoration: none;
-}
-
 .high-low {
   font-size: 30px;
 }
