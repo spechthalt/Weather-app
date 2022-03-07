@@ -24,23 +24,25 @@ h3 {
   padding: 30px;
 }
 
+form {
+  margin-bottom: 50px;
+}
+
 .search-menu {
-  margin: 10px auto 50px;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .search-bar {
   padding: 10px 15px;
-  width: 100%;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .menu-btn {
   color: #006a71;
   background: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 20%);
   padding: 10px 20px;
   transition: all 150ms ease-in-out;
@@ -114,12 +116,16 @@ h3 {
   margin: 0;
 }
 
-.credits {
-  font-size: 14px;
+footer {
+  text-align: center;
   opacity: 0.7;
 }
 
-@media (max-width: 400px) {
+footer a {
+  color: #006a71;
+}
+
+@media (max-width: 426px) {
   .container {
     padding: 0;
   }
@@ -128,5 +134,9 @@ h3 {
     margin: 0px auto;
     border-radius: 0;
     box-shadow: none;
+  }
+
+  .high-low {
+    font-size: 24px;
   }
 }
