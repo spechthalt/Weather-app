@@ -27,7 +27,7 @@
         <div class="weather-app">
           <form action="submit" id="search-form">
             <div class="row search-menu">
-              <div class="col-lg-7 col-sm-8">
+              <div class="col-7">
                 <input
                   id="search"
                   class="search-bar w-100"
@@ -35,7 +35,7 @@
                   placeholder="Search city"
                 />
               </div>
-              <div class="col-lg-2 col-sm-3">
+              <div class="col-3">
                 <input
                   id="search-button"
                   type="submit"
@@ -43,38 +43,40 @@
                   class="menu-btn"
                 />
               </div>
-              <div class="col-lg-1 col-sm-1">
+              <div class="col-2">
                 <button id="current-location-btn" class="menu-btn">📍</button>
               </div>
             </div>
           </form>
 
           <div class="row main-info">
-            <div class="col-lg-7 col-sm-12">
+            <div class="col-6">
               <h2 id="searched-city" class="current-city"></h2>
               <h3 class="date-time">
                 <span id="current-date"></span> <br />
                 <span id="current-time"></span>
               </h3>
             </div>
-            <div class="col-lg-5 col-sm-12">
+            <div class="col-6">
               <span class="high-low">
                 H: <span id="temp-high"></span>° L:
                 <span id="temp-low"></span>°</span
               >
             </div>
 
-            <div class="col-lg-7 col-sm-12 weather-info">
-              <img src="" alt="" id="icon" />
-              <span id="current-display-temp" class="current-temp"></span>
-              <span class="temp-symbol"> °F </span>
-            </div>
-            <div class="col-5 mt-2 weather-info">
-              <span>
-                <span id="description"></span> <br />
-                Humidity: <span id="humidity"></span> <br />
-                Wind speed: <span id="wind-speed"></span><br />
-              </span>
+            <div class="row">
+              <div class="col-7 weather-info">
+                <img src="" alt="" id="icon" />
+                <span id="current-display-temp" class="current-temp"></span>
+                <span class="temp-symbol"> °F </span>
+              </div>
+              <div class="col-5 mt-2 weather-info">
+                <span>
+                  <span id="description"></span> <br />
+                  Humidity: <span id="humidity"></span> <br />
+                  Wind speed: <span id="wind-speed"></span><br />
+                </span>
+              </div>
             </div>
 
             <div class="weather-forecast" id="forecast"></div>
